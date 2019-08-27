@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>CharsetEncodingFilter</filter-name>
+        <filter-class>cn.com.hll.util.CharsetEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>GB18030</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CharsetEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--&lt;!&ndash;登录学生管理系统&ndash;&gt;
+    <servlet>
+          <servlet-name>Login</servlet-name>
+          <servlet-class>servlet.LoginServelet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>Login</servlet-name>
+          <url-pattern>/Login</url-pattern>
+      </servlet-mapping>
+
+           &lt;!&ndash;注册学生管理系统&ndash;&gt;
+      <servlet>
+           <servlet-name>RegisterServelet</servlet-name>
+           <servlet-class>servlet.RegisterServelet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+           <servlet-name>RegisterServelet</servlet-name>
+           <url-pattern>/RegisterServelet</url-pattern>
+      </servlet-mapping>
+
+
+        &lt;!&ndash;增加学生信息&ndash;&gt;
+      <servlet>
+           <servlet-name>AddUser</servlet-name>
+           <servlet-class>servlet.AddUserServlet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+           <servlet-name>AddUser</servlet-name>
+           <url-pattern>/AddUser</url-pattern>
+      </servlet-mapping>
+
+
+
+           &lt;!&ndash;增加学生成绩&ndash;&gt;
+      <servlet>
+           <servlet-name>GradeAdd</servlet-name>
+           <servlet-class>servlet.AddScoreServlet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+           <servlet-name>GradeAdd</servlet-name>
+           <url-pattern>/GradeAdd</url-pattern>
+      </servlet-mapping>
+
+        &lt;!&ndash;增加修改之后的学生成绩&ndash;&gt;
+      <servlet>
+           <servlet-name>AddStudentGrade</servlet-name>
+           <servlet-class>servlet.AddStudentGradeServlet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+           <servlet-name>AddStudentGrade</servlet-name>
+           <url-pattern>/AddStudentGrade</url-pattern>
+      </servlet-mapping>
+
+       &lt;!&ndash;显示学生信息管理系统&ndash;&gt;
+      <servlet>
+          <servlet-name>studentInfo</servlet-name>
+          <servlet-class>servlet.StudentInfoServelet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>studentInfo</servlet-name>
+          <url-pattern>/studentInfo</url-pattern>
+      </servlet-mapping>
+
+
+
+      &lt;!&ndash;显示学生成绩管理系统&ndash;&gt;
+      <servlet>
+              <servlet-name>StudentgradeInfo</servlet-name>
+              <servlet-class>servlet.StudentgradeInfo</servlet-class>
+          </servlet>
+          <servlet-mapping>
+              <servlet-name>StudentgradeInfo</servlet-name>
+              <url-pattern>/StudentgradeInfo</url-pattern>
+          </servlet-mapping>
+
+      //查看通告
+      <servlet>
+          <servlet-name>StudentTitleInfo</servlet-name>
+          <servlet-class>servlet.StudentTitleInfo</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>StudentTitleInfo</servlet-name>
+          <url-pattern>/StudentTitleInfo</url-pattern>
+      </servlet-mapping>
+
+
+       &lt;!&ndash;删除学生信息&ndash;&gt;
+      <servlet>
+          <servlet-name>UserDel</servlet-name>
+          <servlet-class>servlet.UserDelServlet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>UserDel</servlet-name>
+          <url-pattern>/UserDel</url-pattern>
+      </servlet-mapping>
+
+       &lt;!&ndash;删除学生成绩&ndash;&gt;
+      <servlet>
+          <servlet-name>GradeDel</servlet-name>
+          <servlet-class>servlet.GradeDelServlet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>GradeDel</servlet-name>
+          <url-pattern>/GradeDel</url-pattern>
+      </servlet-mapping>
+
+
+
+    &lt;!&ndash;更新学生信息&ndash;&gt;
+      <servlet>
+          <servlet-name>UpdataUser</servlet-name>
+          <servlet-class>servlet.UpdataUserServelet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>UpdataUser</servlet-name>
+          <url-pattern>/updataUser</url-pattern>
+      </servlet-mapping>
+
+
+
+
+    &lt;!&ndash;更新学生成绩&ndash;&gt;
+      <servlet>
+          <servlet-name>UpdataGrade</servlet-name>
+          <servlet-class>servlet.UpdateScoreServlet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>UpdataGrade</servlet-name>
+          <url-pattern>/UpdataGrade</url-pattern>
+      </servlet-mapping>
+
+
+
+    &lt;!&ndash;修改学生信息&ndash;&gt;
+    <servlet>
+          <servlet-name>modifyUser</servlet-name>
+          <servlet-class>servlet.modifyUserServelet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>modifyUser</servlet-name>
+          <url-pattern>/modifyUser</url-pattern>
+      </servlet-mapping>
+
+
+      <servlet>
+          <servlet-name>modifyGrade</servlet-name>
+          <servlet-class>servlet.modifyGradeServlet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>modifyGrade</servlet-name>
+          <url-pattern>/modifyGrade</url-pattern>
+      </servlet-mapping>
+
+      //管理员管理通告
+      <servlet>
+          <servlet-name>TitleInfo1</servlet-name>
+          <servlet-class>servlet.TitleInfo</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>TitleInfo1</servlet-name>
+          <url-pattern>/TitleInfo</url-pattern>
+      </servlet-mapping>
+
+      //更新通告
+      <servlet>
+          <servlet-name>UpdateTitle</servlet-name>
+          <servlet-class>servlet.UpdateTitle</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>UpdateTitle</servlet-name>
+          <url-pattern>/UpdateTitle</url-pattern>
+      </servlet-mapping>
+    //更新通告后
+      <servlet>
+          <servlet-name>UpdataTitleAfter</servlet-name>
+          <servlet-class>servlet.UpdataTitleAfter</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>UpdataTitleAfter</servlet-name>
+          <url-pattern>/UpdataTitleAfter</url-pattern>
+      </servlet-mapping>
+
+  //管理员更新通告
+      <servlet>
+          <servlet-name>StudentUpdateTitle</servlet-name>
+          <servlet-class>servlet.StudentUpdateTitle</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>StudentUpdateTitle</servlet-name>
+          <url-pattern>/StudentUpdateTitle</url-pattern>
+      </servlet-mapping>
+
+      //添加通告
+      <servlet>
+          <servlet-name>AddTitle</servlet-name>
+          <servlet-class>servlet.AddTitle</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>AddTitle</servlet-name>
+          <url-pattern>/AddTitle</url-pattern>
+      </servlet-mapping>
+
+      //删除通告
+      <servlet>
+          <servlet-name>TitleDel</servlet-name>
+          <servlet-class>servlet.TitleDel</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>TitleDel</servlet-name>
+          <url-pattern>/TitleDel</url-pattern>
+      </servlet-mapping>
+
+      //添加管理员信息
+      <servlet>
+          <servlet-name>AdminInfo</servlet-name>
+          <servlet-class>servlet.AdminInfo</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>AdminInfo</servlet-name>
+          <url-pattern>/AdminInfo</url-pattern>
+      </servlet-mapping>
+
+      <servlet>
+          <servlet-name>UpdataAdmin</servlet-name>
+          <servlet-class>servlet.UpdataAdmin</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>UpdataAdmin</servlet-name>
+          <url-pattern>/UpdataAdmin</url-pattern>
+      </servlet-mapping>
+
+
+      //学生查看学生信息
+      <servlet>
+          <servlet-name>SeeStudentInfo</servlet-name>
+          <servlet-class>servlet.SeeStudentInfo</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>SeeStudentInfo</servlet-name>
+          <url-pattern>/SeeStudentInfo</url-pattern>
+      </servlet-mapping>
+
+
+      //学生查看成绩
+      <servlet>
+          <servlet-name>UserStudentgradeInfo</servlet-name>
+          <servlet-class>servlet.UserStudentgradeInfo</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>UserStudentgradeInfo</servlet-name>
+          <url-pattern>/UserStudentgradeInfo</url-pattern>
+      </servlet-mapping>
+      &lt;!&ndash; 登录过滤 ，所有登录的用户必须在登录成功后设置session置，session.setAttribute("username",登录的用户)&ndash;&gt;
+      <filter>
+          <filter-name>accessFilter</filter-name>
+          <filter-class>util.AccessController</filter-class>
+      </filter>
+      <filter-mapping>
+          <filter-name>accessFilter</filter-name>
+          <url-pattern>*.jsp</url-pattern>
+      </filter-mapping>
+      &lt;!&ndash; 登录过滤 &ndash;&gt;
+
+      &lt;!&ndash; 设置seeion值，30分后系统不操作，自动退出 &ndash;&gt;
+      <session-config>
+          <session-timeout>30</session-timeout>
+      </session-config>-->
+
+</web-app>

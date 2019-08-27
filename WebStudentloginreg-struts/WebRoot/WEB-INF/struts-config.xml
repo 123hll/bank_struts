@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    <form-beans>
+        <form-bean name="loginForm" type="cn.com.hll.bean.LoginForm"/>
+        <form-bean name="RegisterForm" type="cn.com.hll.bean.RegisteForm"/>
+        <form-bean name="PasswordForm" type="cn.com.hll.bean.PasswordForm"/>
+        <form-bean name="TitleForm" type="cn.com.hll.bean.TitleForm"/>
+        <form-bean name="StudentForm" type="cn.com.hll.bean.StudentForm"></form-bean>
+    </form-beans>
+
+    <global-exceptions>
+        <exception key="error.exception"
+                   type="cn.com.hll.util.AppException"
+                   handler="cn.com.hll.util.DrpExceptionHandler"
+                   path="/WEB-INF/jsp/error.jsp"/>
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="index" path="/index.jsp" redirect="true"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action path="/login"
+                type="cn.com.hll.action.LoginAction"
+                name="loginForm"
+                scope="request"
+        >
+            <forward name="success" path="/login.jsp" redirect="true"/>
+            <forward name="studentlogin" path="/studentlogin.jsp" redirect="true"/>
+            <forward name="error" path="/index.jsp" redirect="true"/>
+        </action>
+
+        <action path="/register"
+                type="cn.com.hll.action.RegisterAction"
+                name="RegisterForm"
+                scope="request"
+        >
+            <forward name="success" path="/index.jsp" redirect="true"></forward>
+            <forward name="errorcf" path="/errorcf.jsp" redirect="true"></forward>
+        </action>
+
+
+
+        <action path="/student"
+                type="cn.com.hll.action.StudentAction"
+                name="StudentForm"
+                scope="request"
+                parameter="command"
+        >
+            <forward name="list_success" path="/WEB-INF/jsp/studentInfo.jsp" />
+            <!--<forward name="score" path="/WEB-INF/jsp/score.jsp" />
+            <forward name="grade" path="/jsp/gradeAdd.jsp" />
+            <forward name="title" path="/jsp/title.jsp" />
+            <forward name="adminPw" path="/jsp/adminPw.jsp" />
+-->
+        </action>
+
+
+        <action path="/studentP"
+                type="cn.com.hll.action.StudentAction"
+                name="PasswordForm"
+                scope="request"
+                parameter="command"
+        >
+        </action>
+
+        <action path="/studentT"
+                type="cn.com.hll.action.StudentAction"
+                name="TitleForm"
+                scope="request"
+                parameter="command"
+        >
+        </action>
+    </action-mappings>
+
+    <message-resources parameter="MessageResources" />
+
+</struts-config>
